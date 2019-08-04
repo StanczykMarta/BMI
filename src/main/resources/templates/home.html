@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", Arial, Helvetica, sans-serif
+    }
+
+    .container {
+        width: 100%;
+        margin-top: 100px;
+        margin-right: 100%;
+        margin-left: 10%;
+    }
+
+    body {
+        background-color: lightgray;
+        opacity: 50%;
+    }
+
+   .second{
+       padding: 20px;
+   }
+    .second2{
+        padding: 20px;
+        margin-top: 50%;
+    }
+</style>
+<body>
+<div class="container row">
+    <div class="w3-card-4 w3-margin w3-white w3-col l4 second">
+        <div class="w3-container">
+            <h3>Oblicz swój wskaźnik BMI</h3>
+            <form action="/" method="post" th:object="${operationModel}">
+                <label>Podaj swoją wagę w kg </label>
+                <p><input type="number" name="weight" th:field="*{weight}"></p>
+                <label> Podaj swój wzrost w cm </label>
+                <p><input type="number" name="hight" th:field="*{hight}"></p>
+                <input type="submit" name="bmi" value="Oblicz">
+            </form>
+            <label>Twoj wynik to : </label>
+            <p th:text="${result}"></p>
+        </div>
+
+    </div>
+    <div class="w3-card-4 w3-margin w3-white w3-col l2 second2">
+        <div class="w3-container">
+            <h3 style="font-size:12px">
+                <p>Zakresy wartości BMI:</p>
+
+               <p> mniej niż 16 - wygłodzenie</p>
+                <p>16 - 16.99 - wychudzenie</p>
+                <p>17 - 18.49 - niedowaga</p>
+                <p>18.5 - 24.99 - wartość prawidłowa</p>
+                <p>25 - 29.99 - nadwaga</p>
+                <p>30 - 34.99 - I stopień otyłości</p>
+                <p>35 - 39.99 - II stopień otyłości</p>
+                <p>powyżej 40 - otyłość skrajna</p></h3>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
